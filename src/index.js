@@ -1,6 +1,6 @@
 const $app = document.getElementById('app');
 const $observe = document.getElementById('observe');
-const API = 'https://rickandmortyapi.com/api/character/';
+const API = 'https://us-central1-escuelajs-api.cloudfunctions.net/characters';
 
 const getData = api => {
   fetch(api)
@@ -19,6 +19,7 @@ const getData = api => {
       newItem.classList.add('Items');
       newItem.innerHTML = output;
       $app.appendChild(newItem);
+      localStorage.setItem('next_fetch', response.info.next)
     })
     .catch(error => console.log(error));
 }
