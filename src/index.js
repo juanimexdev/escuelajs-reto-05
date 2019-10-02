@@ -27,6 +27,13 @@ const getData = api => {
       newItem.innerHTML = output;
       $app.appendChild(newItem);
       localStorage.setItem('next_fetch', response.info.next)
+      if(response.info.next === ''){
+        console.log('ya no hay mas personajes')
+        intersectionObserver.unobserve(observe)
+        let newItem = document.createElement('section');
+        newItem.innerHTML = 'ya no hay mas personajes';
+        $app.appendChild(newItem);
+      }
     })
     .catch(error => console.log(error));
 }
