@@ -2,6 +2,9 @@ const $app = document.getElementById('app');
 const $observe = document.getElementById('observe');
 const API = 'https://rickandmortyapi.com/api/character/';
 
+//reto 3
+document.addEventListener('DOMContentLoaded', localStorage.clear())
+
 const getData = api => {
   //reto 2
   if (localStorage.getItem('next_fetch') !== null ) {
